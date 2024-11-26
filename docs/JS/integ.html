@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDAS Calculator with 5 Inputs</title>
+    <link rel="stylesheet" href="/docs/CSS/act.css">
+</head>
+<body>
+    <div class="turning">
+        <ul>
+            <li><a href="/docs/project.html">Back</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>MY MDAS CALCULATOR</h2>
+
+        <input type="number" placeholder="Enter first number" id="number1">
+        <input type="number" placeholder="Enter second number" id="number2">
+        <input type="number" placeholder="Enter third number" id="number3">
+        <input type="number" placeholder="Enter fourth number" id="number4">
+        <input type="number" placeholder="Enter fifth number" id="number5">
+        
+        
+        <button onclick="calculate()">Calculate Result</button>
+
+        <p id="result"> </p>
+
+        <div class="box">
+            <p id="para">Is it my imagination or am I getting smarter? I think the glow from your electric personality must be energizing my brain as well as my heart. I aced my statistics test on Monday--even after we were out so late on Sunday night. All the more surprising as your pretty face kept coming up between my calculator and all the formulas I had to deal with!
+
+            I like to think I'm getting to know you better each time we go out, but the truth is you're still full of surprises. I didn't expect to hear that you not only studied German and Russian, but you aced a statistics course too! I'd really like to read the results of all your statistical tests in your thesis when you finish your first draft. And if you need any help, I'm your man! Stats is a language I'd be happy to converse in any time.
+
+            That's the great thing about this relationship--we have so many things in common, like politics and hiking (and statistics!), but each of us also has interests that are out of the other one's familiar world. This makes the time we spend together especially interesting and helps us widen our worlds a little, too. I was surprised to hear you had never played chess before, but you really showed a knack for it when we played together on Saturday night and you beat me! I demand a rematch! And I was amazed to learn about the importance of intonation in nonnative comprehension of English. I need another lesson, though, because I still don't understand the difference between segmentals and suprasegmentals!
+
+            I hope you know how much I enjoy being with you. My feelings for you keep growing all the time. I've run into a few girls I've gone out with a few times before (before you!), but I'm really not interested anymore. I find myself thinking only about you (and less about statistics) and not wanting to see anyone else. I hope you're starting to feel the same way about me, too. Let's get together on Saturday evening--please tell me that's become our regular date night! I'm looking forward to another chess game with you as well as another lesson in phonology.
+
+            With love and anticipation...</p>
+            <button onclick="changeFontSize(1)">Increase Font Size</button>
+            <button onclick="changeFontSize(-1)">Decrease Font Size</button>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            
+            const num1 = parseFloat(document.getElementById("number1").value);
+            const num2 = parseFloat(document.getElementById("number2").value);
+            const num3 = parseFloat(document.getElementById("number3").value);
+            const num4 = parseFloat(document.getElementById("number4").value);
+            const num5 = parseFloat(document.getElementById("number5").value);
+
+            
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3) || isNaN(num4) || isNaN(num5)) {
+                document.getElementById("result").innerText = "Please enter valid numbers in all fields.";
+                return;
+            }
+
+            let result = num1 * num2; 
+            result /= num3;            
+            result += num4;           
+            result -= num5;            
+
+            document.getElementById("result").innerText = "Final Result: " + result;
+        }
+
+    /* Font RESizer */
+        function changeFontSize(amount) {
+            const resultParagraph = document.getElementById("para");
+            const currentSize = window.getComputedStyle(resultParagraph).fontSize;
+            const newSize = parseFloat(currentSize) + amount;
+            resultParagraph.style.fontSize = newSize + "px";
+        }
+    </script>
+</body>
+</html>
